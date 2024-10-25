@@ -1,29 +1,30 @@
 {
-  "name": "nodejs-javascript-template",
+  "name": "javascript-wheather-app",
   "version": "1.0.0",
-  "description": "project template for javascript projects based in NodeJs with Webpack",
+  "description": "Weahter application using Javascript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack serve",
+    "add-dist": "git add dist -f && git commit -m 'Deployment commit'",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/orbec/nodejs-javascript-template.git"
+    "url": "git+ssh://git@github.com:orbec/javascrip-wheather-app.git"
   },
   "keywords": [
     "Nodejs",
-    "template",
+    "weather",
     "javascript"
   ],
   "author": "jalopezing@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/orbec/nodejs-javascript-template/issues"
+    "url": "https://github.com/orbec/javascrip-wheather-app/issues"
   },
-  "homepage": "https://github.com/orbec/nodejs-javascript-template#readme",
+  "homepage": "https://github.com/orbec/javascrip-wheather-app#readme",
   "devDependencies": {
     "@babel/core": "^7.25.9",
     "@babel/preset-env": "^7.25.9",

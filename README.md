@@ -1,3 +1,3 @@
 # nodejs-javascript-template
 
-Repository thaworks as a template for Nodejs projects with WebPack
+This project, is a basic project practicing API calls
