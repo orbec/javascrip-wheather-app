@@ -1,10 +1,243 @@
+@font-face {
+  font-family: "Righteous-Regular";
+  src:
+    url("./assets/fonts/Righteous-Regular.woff") format("woff"),
+    url("./assets/fonts/Righteous-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --dark-color: #52525b;
+  --bright-color: #e4e4e7;
+  --medium-color: #a1a1aa;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  font-family: "Righteous-Regular", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
 }
 
-html,
 body {
-  height: 100%;
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bright-color);
+}
+
+form {
+  display: grid;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: var(--dark-color);
+  color: var(--bright-color);
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 100%;
+  margin-left: -60px;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container fieldset {
+  text-align: center;
+  border: none;
+}
+
+.form-group {
+  margin-top: 24px;
+  text-align: justify;
+  position: relative;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px;
+  border: 1px solid var(--bright-color);
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-group input[type="checkbox"] {
+  width: auto;
+  transform: scale(1.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--medium-color);
+  box-shadow: 0 0 5px var(--dark-color);
+  outline: none;
+}
+
+.form-group label {
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.form-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--dark-color);
+  color: var(--bright-color);
+  transition: background-color 0.3s;
+}
+
+.form-buttons button:hover {
+  background-color: black;
+}
+
+button:hover {
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  background-color: var(--bright-color);
+}
+
+.container {
+  background-color: var(--medium-color);
+  color: var(--dark-color);
+  width: 30%;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
+  box-shadow: 0 0 5px var(--dark-color);
+}
+
+.container.initial {
+  width: 30%;
+  border-radius: 5px;
+}
+
+.container.main {
+  width: 70%;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  margin-top: 20px;
+}
+
+.container.content {
+  width: 100%;
+  margin: 0%;
+  box-shadow: none;
+}
+
+.header {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--dark-color);
+  color: var(--bright-color);
+  border-radius: inherit;
+}
+
+.header > button {
+  margin-left: 85%;
+  font-size: 14px;
+}
+
+.header h2 {
+  border-bottom: solid;
+}
+
+.header > div {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container.content .header {
+  width: 100%;
+  background-color: var(--medium-color);
+  color: var(--dark-color);
+  border-radius: inherit;
+}
+
+.collapsible {
+  background-color: var(--dark-color);
+  color: var(--bright-color);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: var(--bright-color);
+  color: var(--dark-color);
+}
+
+.container.content .content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.container.content .content .header {
+  background-color: inherit;
+}
+
+#loading {
+  width: 3rem;
+  height: 3rem;
+  border: 5px solid var(--dark-color);
+  border-top: 6px solid var(--bright-color);
+  border-radius: 100%;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
